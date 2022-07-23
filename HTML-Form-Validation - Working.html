@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hide and Show Form Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  
+  
+  <body class="container justify-content-center d-flex">
+   <div class="myform p-4">
+   <form action="" class="needs-validation" novalidate >
+    <h2>Registration Form</h2>
+    <div class="row">
+      <div class="mt-3 col-lg-6 col-md-6 col-sm-10 col-12 m-auto">
+        <div>
+            <label for="exampleInputEmail1" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="FirstName" placeholder="Enter your first name" pattern="[a-zA-Z]*" oninput="fullnameDisplay()" required>
+            <div class="valid-feedback">First name is valid!</div>
+                        <div class="invalid-feedback">First name cannot be blank!</div>
+        </div>
+      </div>
+      <div class="mt-3 col-lg-6 col-md-6 col-sm-10 col-12 m-auto">
+        <label for="exampleInputEmail1" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="LastName" placeholder="Enter your last name"  pattern="[a-zA-Z]*" oninput="fullnameDisplay()" required>
+        <div class="invalid-feedback">Input your last name</div>
+        <div class="valid-feedback">Last Name is Valid</div>
+      </div>
+      </div>
+    <div class="mb-3 mt-2">
+          <label for="exampleInputEmail1" class="form-label">Full Name</label>
+          <input type="text" class="form-control" id="FullName" placeholder="Auto Populated Full name" required>
+         <div class="invalid-feedback">Input your First name and Last Name correctly</div>
+          <div class="valid-feedback">Full Name is Valid</div>
+    </div>
+	<div class="input-group">
+		<label class="form-label">Date Of Birth</label>
+		<input type="date" class="form-control ms-3 me-4" type="date" id="dob" name="dob" onchange="myage()" placeholder="Start"/ required >
+		<label class="form-label">Age</label>
+		<input type="text" class="form-control ms-2" id="age" placeholder="Your Age"/ required>
+	</div>
+	<div class="input-group mt-4">
+	  <label class="form-label me-2">Gender</label>
+	  <select class="form-select" id="validationServer04" required>
+        <option selected disabled value="">Choose Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+      </select>
+	  <label class="form-label ms-3 me-1">Qualification</label>
+	  <select class="form-select" id="validationServer04" required>
+        <option selected disabled value="">Choose Qualification</option>
+        <option>Tenth</option>
+        <option>Inter</option>
+        <option>Degree</option>
+        <option>B.Tech</option>
+      </select>
+	</div>
+	<div class="input-group mt-6">
+		<label class="me-2">Skills:</label>
+		<div class="form-check">
+        <label class="form-check-label me-2"  for="check1">C</label>
+		  <input type="checkbox" class="form-check-input" id="check1" name="checkboxlist">
+		 
+		</div>
+		<div class="form-check mt-6">
+		  <input type="checkbox" class="form-check-input" id="check2" name="checkboxlist" >
+		  <label class="form-check-label me-2" for="check2">Java</label>
+		</div>
+		<div class="form-check">
+		  <input type="checkbox" class="form-check-input" name="checkboxlist">
+		  <label class="form-check-label me-4">JS</label>
+		</div>
+    <p class="err"> Please select at least one check box</p>
+	</div>
+    <div class="mt-2 row">
+    <label for="validationServer04" class="form-label">Type:</label>
+    <div class="form-check col-lg-3 col-md-3 col-sm-10 ms-3">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onclick="myhideFunction()" required>
+      <label class="form-check-label" for="flexRadioDefault1">Fresher</label>
+    </div>
+    <div class="form-check col-lg-3 col-md-3 col-sm-10 ms-3">
+       <input class="form-check-input" type="radio" name="flexRadioDefault" id="experienceid" onclick="myFunction()" required>
+        <label class="form-check-label" for="flexRadioDefault1"> Experience</label>
+      </div>
+    </div> 
+	
+	
+	<section id="myDIV">
+  <div class="container">  
+	<h2>Experience</h2>
+	<div class="mt-3">
+		<label class="form-label">Date Of Joining</label>
+		<input type="date" class="form-control  " id="dateofjoining" placeholder="Start" pattern="[1-22]*"/ required>
+         <div class="invalid-feedback">Input your joining date</div>
+        <div class="valid-feedback">joining date is Valid</div>
+  </div>
+  <div>      
+		<label class="form-label">Date Of Leaving</label>
+		<input type="date" class="form-control "  id="dateofleaving" placeholder="Your Age" onchange="experiencecount()"/ required>
+         <div class="invalid-feedback">Input your leaving date</div>
+        <div class="valid-feedback">leaving date is Valid</div>
+	</div>
+	 <div class="input-group">
+		 <label class="form-label">Name of the Company</label>
+		 <input type="text" class="form-control " placeholder="Enter Name of the Company"  pattern="[a-zA-Z]*" / required>
+         <div class="invalid-feedback">Input your company name</div>
+        <div class="valid-feedback">company is Valid</div>
+		<label class="form-label">Experience</label>
+		<input type="text" class="form-control " id="experience"  placeholder="Experience"/ required>
+         <div class="invalid-feedback">Input your experince</div>
+        <div class="valid-feedback">experince is Valid</div>
+	</div>
+	<div class="input-group mt-2">
+	  <label class="form-label me-2">Department</label>
+	  <select class="form-select" id="validationServer04" required>
+          <option selected disabled value="">Choose Department</option>
+          <option>Developer</option>
+          <option>Tester</option>
+          <div class="invalid-feedback">Input your department</div>
+         <div class="valid-feedback">department is Valid</div>
+         </select>
+    </div>
+      <div>
+	  <label class="form-label mt-2">Place</label>
+	  <input type="text" class="form-control ms-2" placeholder="Your place"  pattern="[a-zA-Z]*"/ required>
+         <div class="invalid-feedback">Input your place</div>
+        <div class="valid-feedback">place is Valid</div>
+  </div>
+</div>
+</section>
+      <div class="mt-4">
+      <div class="d-grid">
+        <button class="btn btn-primary" onsubmit="window.alert(Sign of done Successfully)">Submit</button>
+      </div>
+    </div>	
+	</div>
+	
+	
+
+  
+  
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  <script src =  "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  
+<script type="text/javascript">
+    $(".btnsubmit").click(function(){
+         if ($('.form-check-input').filter(':checked').length < 1){
+               // alert("Please Check at least one Color Box");
+			   $(".err").show();
+                 return false;
+         }else{
+			 $(".err").hide();
+             //alert("Proceed");
+         }
+    });
+</script>
+  
+  
+  <script src="experience.js"></script>
+  <script src="workexperience.js"></script>
+  <script type="text/javascript" src="AgeCalculation.js"></script>
+  <script type="text/javascript" src="ExperienceCalculation.js"></script>
+  <script type="text/javascript" src="FullNameDisplay.js"></script>
+  <script type="text/javascript" src="HideForm.js"></script>
+  <script type="text/javascript" src="Validation.js"></script>
+  </body>
+</html>
